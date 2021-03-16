@@ -1,0 +1,24 @@
+Matthew Spohrer
+CS163 prog2 write-up
+psu ID = 958566579
+
+	For program two we used stacks and queues to help manage data entered by a user about restaurant customers and promotional material. For the waitlist I used a queue (as I was 
+instructed) to enqueue the party when they arrived and dequeue the party when they were sat. For the queue I used a circular linked list with its pointer hidden in the private section of
+a class data type, keeping the data structure hidden from the client. This worked swimmingly for the queue as it allows the user to remove the first party to be added to the list when they
+are sat and add a party to the end of the linked list when a new one arrives. In addition, the circular linked list was ideal for the queue because it allows for virtually instant access
+for all the data being used. Using the rear pointer to manipulate the data at the beginning and the end of the list allows for access to the data without having to traverse either 
+iteratively or recursively. An array, by itself, could have been used here but shifting would have sacrificed any benefits gained from the instant access. A linear linked list could also
+have been used here but we would have lost the ease of adding at the rear and removing at the nest node rear's node was pointing to. In theory, we could have had a head pointer and a 
+rear pointer, adding the new names to rear and removing at head but the circular linked list saves us a pointer.
+	The second part of the program used to handle the promotional material being sent out to the most recent customers used a stack. This allowed for quick access to the most recently 
+added customers to the list. This worked well, as well, because we only needed access to the most recent customers information to send promotional materials. For the stack we used a 
+linear linked list of arrays. This allowed us to store several customers' information at the head pointer, allowing instant access to the names. Once again, no traversal was necessary to 
+access any of the information. Having slightly fewer fetches than the linear linked list of arrays, a standalone array would be more efficient at run time; however, the stand alone 
+array would not be able to handle adding and removing data dynamically, once the size of the array was established it wouldn't be able to be changed without a cost to efficiency. A stand 
+alone linear linked list could have also been used, adding and removing from the head but where would the learning experience have been with that?
+	As far as the efficiency of my program, I think the use of constructors and destructors made it a lot more efficient. Instead of having to delete all dynamically allocated memory,
+my program just deletes the node, initializing the destructor. Also, from my last program I learned to homogenously use the return functions, 0 for any time a request couldn't be completed
+and 1 for successful implementation. There were a few times I passed items to a function in a class I didn't really need to. So the member functions in the class have access to the
+private data in the class and I still passed the head/rear pointer to the member function. Basically, if I had more time, I would refine the code. There was a lot of throwing code on the
+screen and playing with it until it worked correctly, resulting in some clunky code at some points. Every program, though, I feel like I am getting substantially better, at both pounding 
+out code and debugging (and there's a ton of that).
